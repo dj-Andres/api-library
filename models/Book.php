@@ -12,14 +12,19 @@ class Book extends ActiveRecord
     return 'book';
   }
 
+  /**
+   * Validate the information the requeste
+   * @return array
+   */
   public function rules(): array
   {
     return [
-      [['title', 'publication_year'], 'required'],
-      [['publication_year'], 'integer'],
-      [['description'], 'string'],
-      [['title'], 'string', 'max' => 255],
-    ];
+      [['title', 'publication_year'], 'required', 'message' => '{attribute} no puede estar vacío.'],
+      [['publication_year'], 'integer', 'message' => '{attribute} debe ser un número entero.'],
+      [['publication_year'], 'integer', 'min' => 0, 'message' => '{attribute} debe ser un número positivo.'],
+      [['description'], 'string', 'message' => '{attribute} debe ser un texto.'],
+      [['title'], 'string', 'max' => 255, 'message' => '{attribute} no debe exceder los 255 caracteres.'],
+  ];
   }
 
   public function getAuthors()
