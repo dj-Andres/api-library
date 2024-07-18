@@ -5,6 +5,8 @@ namespace app\components;
 
 use Yii;
 
+use yii\helpers\Json;
+
 /**
  * Class ResponseComponent
  * 
@@ -23,6 +25,8 @@ class ResponseFormatter
    */
   public static function success($data, $message = 'Successfully')
   {
+    \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
     return [
       'status' => Yii::$app->response->statusCode,
       'message' => $message,

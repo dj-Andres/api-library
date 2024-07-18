@@ -16,15 +16,30 @@ class Author extends  ActiveRecord
   {
     return [
       [['name', 'birthday_date'], 'required', 'message' => '{attribute} no puede estar vacío.'],
-      [['birthday_date'], 'date', 'format' => 'php:Y-m-d','message' => '{attribute} Debe de ser una fecha valida.'],
-      [['name', 'nationality'], 'string', 'max' => 255,'message' => '{attribute} no debe exceder los 255 caracteres.'],
+      [['birthday_date'], 'date', 'format' => 'php:Y-m-d', 'message' => '{attribute} Debe de ser una fecha valida.'],
+      [['name', 'nationality'], 'string', 'max' => 255, 'message' => '{attribute} no debe exceder los 255 caracteres.'],
     ];
   }
 
 
   public function getBooks()
   {
-    return $this->hasMany(Book::class, ['id' => 'book_id'])
-      ->viaTable('author_book', ['author_id' => 'id']);
+      return $this->hasMany(Book::class, ['id' => 'book_id'])
+          ->viaTable('author_book', ['author_id' => 'id']);
   }
+
+
+  /* public function getBooks()
+  {
+    return $this->hasMany(Book::class, ['id' => 'book_id']);
+  }
+
+  public function fields()
+  {
+    $fields = parent::fields();
+    $fields['books'] = function ($model) {
+      return $model->books;
+    };
+    return $fields;
+  } */
 }

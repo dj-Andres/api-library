@@ -19,7 +19,7 @@ class Book extends ActiveRecord
   public function rules(): array
   {
     return [
-      [['title', 'publication_year'], 'required', 'message' => '{attribute} no puede estar vacío.'],
+      [['title', 'publication_year','author_id'], 'required', 'message' => '{attribute} no puede estar vacío.'],
       [['publication_year'], 'integer', 'message' => '{attribute} debe ser un número entero.'],
       [['publication_year'], 'integer', 'min' => 0, 'message' => '{attribute} debe ser un número positivo.'],
       [['description'], 'string', 'message' => '{attribute} debe ser un texto.'],
@@ -31,5 +31,14 @@ class Book extends ActiveRecord
   {
     return $this->hasMany(Author::class, ['id' => 'author_id'])
       ->viaTable('author_book', ['book_id' => 'id']);
+  }
+
+  public function fields()
+  {
+    $fields = parent::fields();
+    $fields['authors'] = function ($model) {
+      return $model->authors;
+    };
+    return $fields;
   }
 }

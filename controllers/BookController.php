@@ -30,11 +30,11 @@ class BookController extends ActiveController
   }
   /**
    * Get all books
-   * @return array
+   * @return array the list of books
    */
-  public function actionIndex(): array
+  public function actionIndex()
   {
-    $books = Book::find()->all();
+    $books = Book::find()->with('authors')->all();
     return ResponseFormatter::success($books);
   }
   /**
@@ -59,7 +59,7 @@ class BookController extends ActiveController
     $model->load(Yii::$app->request->post(), '');
 
     if ($model->validate() && $model->save()) {
-      $autorIds = Yii::$app->request->post('authors');
+      $autorIds = Yii::$app->request->post('authors',[]);
       if (!empty($autorIds)) {
         foreach ($autorIds as $autorId) {
           Yii::$app->db->createCommand()->insert('author_book', [
