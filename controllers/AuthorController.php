@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\AuthFilter;
 use app\components\ResponseFormatter;
 use app\models\Author;
 use Yii;
@@ -16,6 +17,15 @@ class AuthorController extends ActiveController
    * @var string the class model is using the controller.
    */
   public $modelClass = 'app\models\Author';
+
+  public function behaviors()
+    {
+        return [
+            'authenticator' => [
+                'class' => AuthFilter::class,
+            ],
+        ];
+    }
 
   /**
    * Setting the actions defaults the contoller

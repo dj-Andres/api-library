@@ -12,7 +12,7 @@ class m240718_205914_add_author_id_to_book_table extends Migration
      */
     public function safeUp()
     {
-        $this->addColumn('{{%book}}', 'author_id', $this->integer()->notNull()->after('id'));
+        $this->addColumn('{{%book}}', 'author_id', $this->integer()->after('id'));
 
         $this->addForeignKey(
             'fk-book-author_id',

@@ -12,6 +12,11 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'user' => [
+            'identityClass' => 'app\models\User',
+            'enableAutoLogin' => false,
+            'loginUrl' => null,
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'v51BQ_ZS3Nb8XhZrolu-EclxnaPvY9lM',
@@ -49,15 +54,17 @@ $config = [
             ],
         ],
         'db' => $db,
-        
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+                'POST api/register' => 'auth/register',
+                'POST api/login' => 'auth/login',
                 [
-                    'class' => 'yii\rest\UrlRule', 
-                    'controller' => ['book', 'author'],
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['book', 'author','auth'],
                     'prefix' => 'api'
                 ],
             ],
