@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\ResponseFormatter;
 use Yii;
 use yii\rest\Controller;
 use app\models\User;
@@ -20,20 +21,20 @@ class AuthController extends Controller
 
     $user = User::findByUsername($username);
 
-    if ($user && $user->validatePassword($password)) {
-        $user->generateAuthToken();
-        if ($user->save(false)) {
-            return [
-                'status' => 'success',
-                'accessToken' => $user->access_token,
-                'expiresAt' => $user->token_expiry
-            ];
-        } else {
-            throw new ServerErrorHttpException('Failed to save user token.');
-        }
-    } else {
-        throw new UnauthorizedHttpException('Invalid credentials');
+    if (!$user || !$user->validatePassword($password)) {
+      throw new UnauthorizedHttpException('Invalid credentials');
     }
+
+    $user->generateAuthToken();
+
+    if (!$user->save(false)) {
+      throw new ServerErrorHttpException('Failed to save user token.');
+    }
+
+    return ResponseFormatter::success([
+      'accessToken' => $user->access_token,
+      'expiresAt' => $user->token_expiry
+    ],"Logged in User");
   }
   public function actionRegister()
   {
@@ -49,7 +50,6 @@ class AuthController extends Controller
       throw new BadRequestHttpException('Username and password cannot be null');
     }
 
-    //$user = User::createUser($username, $password);
     $user = new User();
     $user->username = $username;
     $user->password = Yii::$app->security->generatePasswordHash($password);
@@ -60,9 +60,9 @@ class AuthController extends Controller
       throw new ServerErrorHttpException('Failed to create the user for unknown reason.');
     }
 
-    return [
+    return ResponseFormatter::success([
       'accessToken' => $user->access_token,
       'expiresAt' => $user->token_expiry
-    ];
+    ],"User Register");
   }
 }

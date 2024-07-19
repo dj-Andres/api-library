@@ -20,11 +20,11 @@ class AuthorController extends ActiveController
 
   public function behaviors()
   {
-        return [
-            'authenticator' => [
-                'class' => AuthFilter::class,
-            ],
-        ];
+    return [
+      'authenticator' => [
+        'class' => AuthFilter::class,
+      ],
+    ];
   }
 
   /**
@@ -44,8 +44,7 @@ class AuthorController extends ActiveController
    */
   public function actionIndex(): array
   {
-    $authors = Author::find()
-      ->all();
+    $authors = Author::find()->all();
     return ResponseFormatter::success($authors);
   }
   /**

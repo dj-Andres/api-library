@@ -20,11 +20,11 @@ class BookController extends ActiveController
 
   public function behaviors()
   {
-        return [
-            'authenticator' => [
-                'class' => AuthFilter::class,
-            ],
-        ];
+    return [
+      'authenticator' => [
+        'class' => AuthFilter::class,
+      ],
+    ];
   }
 
   /**
