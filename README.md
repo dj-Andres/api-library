@@ -20,23 +20,25 @@ Sigue los siguientes pasos para configurar y ejecutar el proyecto localmente.
 
 Clona el repositorio del proyecto desde GitHub.
 
+    git https://github.com/dj-Andres/api-library
 
-git https://github.com/dj-Andres/api-library
-cd api-library
+Acceder a la carpeta del proyecto
+
+    cd api-library
 
 
 ### 2. Instalación de dependencias
-
-composer install
+    composer install
 
 ### 3. Configuracion de la base de datos
- CREATE DATABASE biblioteca;
- colocar las credentiales de la base de datos en el archivo de configuracion config/db.php
+    CREATE DATABASE biblioteca;
+
+ colocar las credentiales de la base de datos en el archivo de configuracion el archivo 
+
+      config/db.php
 
 ### 4. Migracion de la base de datos
     php yii migrate
 
 ### 5. Iniciar el servidor
- php yii serve
-
-
+    php yii serve
