@@ -43,10 +43,10 @@ class ResponseFormatter
    */
   public static function error($message, $statusCode)
   {
-    Yii::$app->response->statusCode = $statusCode;
+    \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
     return [
-      'status' => $statusCode,
+      'status' => Yii::$app->response->statusCode,
       'message' => $message,
       'data' => null,
     ];

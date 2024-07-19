@@ -21,16 +21,18 @@ class AuthController extends Controller
     $user = User::findByUsername($username);
 
     if ($user && $user->validatePassword($password)) {
-      $user->generateAuthToken();
-      $user->save();
-
-      return [
-        'status' => 'success',
-        'accessToken' => $user->auth_token,
-        'expiresAt' => $user->token_expiry->format('Y-m-d H:i:s')
-      ];
+        $user->generateAuthToken();
+        if ($user->save(false)) {
+            return [
+                'status' => 'success',
+                'accessToken' => $user->access_token,
+                'expiresAt' => $user->token_expiry
+            ];
+        } else {
+            throw new ServerErrorHttpException('Failed to save user token.');
+        }
     } else {
-      throw new UnauthorizedHttpException('Invalid credentials');
+        throw new UnauthorizedHttpException('Invalid credentials');
     }
   }
   public function actionRegister()
@@ -51,7 +53,7 @@ class AuthController extends Controller
     $user = new User();
     $user->username = $username;
     $user->password = Yii::$app->security->generatePasswordHash($password);
-    $user->authKey = Yii::$app->security->generateRandomString();
+    $user->auth_key = Yii::$app->security->generateRandomString();
     $user->generateAuthToken();
 
     if (!$user->save()) {

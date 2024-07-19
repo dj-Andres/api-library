@@ -19,13 +19,13 @@ class AuthorController extends ActiveController
   public $modelClass = 'app\models\Author';
 
   public function behaviors()
-    {
+  {
         return [
             'authenticator' => [
                 'class' => AuthFilter::class,
             ],
         ];
-    }
+  }
 
   /**
    * Setting the actions defaults the contoller

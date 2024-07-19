@@ -12,10 +12,16 @@ class AuthFilter extends ActionFilter
     public function beforeAction($action)
     {
         $headers = Yii::$app->request->headers;
-        $token = $headers->get('Authorization');
+        $authHeader = $headers->get('Authorization');
 
-        if (!$token) {
+        if (!$authHeader) {
             throw new UnauthorizedHttpException('Token not provided');
+        }
+
+        if (preg_match('/Bearer\s(\S+)/', $authHeader, $matches)) {
+            $token = $matches[1];
+        } else {
+            $token = $authHeader;
         }
 
         $user = User::findIdentityByAccessToken($token);

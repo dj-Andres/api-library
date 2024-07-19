@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\AuthFilter;
 use app\components\ResponseFormatter;
 use app\models\Book;
 use Yii;
@@ -16,6 +17,15 @@ class BookController extends ActiveController
    * @var string the class model is using the controller.
    */
   public $modelClass = 'app\models\Book';
+
+  public function behaviors()
+  {
+        return [
+            'authenticator' => [
+                'class' => AuthFilter::class,
+            ],
+        ];
+  }
 
   /**
    * Setting the actions defaults the contoller
@@ -59,15 +69,6 @@ class BookController extends ActiveController
     $model->load(Yii::$app->request->post(), '');
 
     if ($model->validate() && $model->save()) {
-      $autorIds = Yii::$app->request->post('authors',[]);
-      if (!empty($autorIds)) {
-        foreach ($autorIds as $autorId) {
-          Yii::$app->db->createCommand()->insert('author_book', [
-            'author_id' => $autorId,
-            'book_id' => $model->id,
-          ])->execute();
-        }
-      }
       Yii::$app->response->statusCode = 201;
       return ResponseFormatter::success($model, 'Created book successfully.');
     } else {
@@ -87,15 +88,6 @@ class BookController extends ActiveController
     $model->load(Yii::$app->request->post(), '');
 
     if ($model->validate() && $model->save()) {
-      Yii::$app->db->createCommand()->delete('author_book', ['book_id' => $model->id])->execute();
-
-      $autorIds = Yii::$app->request->post('authors', []);
-      foreach ($autorIds as $autorId) {
-        Yii::$app->db->createCommand()->insert('author_book', [
-          'author_id' => $autorId,
-          'book_id' => $model->id,
-        ])->execute();
-      }
       return ResponseFormatter::success($model, 'Updated book successfully.');
     } else {
       throw new UnprocessableEntityHttpException(json_encode($model->errors));
@@ -111,7 +103,6 @@ class BookController extends ActiveController
   public function actionDelete(int $id)
   {
     $model = $this->findModel($id);
-    Yii::$app->db->createCommand()->delete('author_book', ['book_id' => $model->id])->execute();
 
     if ($model->delete() === false) {
       throw new UnprocessableEntityHttpException('No se pudo eliminar el libro.');
