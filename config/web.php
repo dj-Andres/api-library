@@ -11,6 +11,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'timezone' => 'America/Guayaquil',
     'components' => [
         'user' => [
             'identityClass' => 'app\models\User',
