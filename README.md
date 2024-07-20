@@ -9,7 +9,6 @@ Antes de comenzar, asegúrate de tener instalados los siguientes requisitos en t
 - PHP 7.4 o superior
 - Composer
 - MySQL
-- MongoDB
 - Git
 
 ## Instalación
@@ -31,7 +30,7 @@ Sigue los siguientes pasos para configurar y ejecutar el proyecto localmente.
     composer install
 
 ## 3. Configuracion de la base de datos
-    CREATE DATABASE biblioteca;
+    CREATE DATABASE library;
 
  ### colocar las credentiales de la base de datos en el archivo de configuracion el archivo 
 
