@@ -16,7 +16,7 @@ class m240718_014402_create_author_table extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
             'nationality' => $this->string(),
-            
+            'birthday_date' => $this->date()->notNull()
         ]);
     }
 

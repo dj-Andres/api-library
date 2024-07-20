@@ -1,0 +1,2500 @@
+{
+	"info": {
+		"_postman_id": "91a85665-c493-4c09-b1b4-4df583e739f7",
+		"name": "Library",
+		"description": "This is the guide to a library API, the functionalities they have are CRUD, in addition to having authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13279794"
+	},
+	"item": [
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Get all Auhtors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"authors"
+							]
+						},
+						"description": "Allows you to list the information of all authors"
+					},
+					"response": [
+						{
+							"name": "Response the token Invalided",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:42:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b16132cf49"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "388"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b16132cf49"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Unauthorized\",\n    \"message\": \"Invalid token\",\n    \"code\": 0,\n    \"status\": 401,\n    \"type\": \"yii\\\\web\\\\UnauthorizedHttpException\"\n}"
+						},
+						{
+							"name": "Response success get all Authors",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:43:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=kjka3oop08a68opdfqns76cch0; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=f9a1cbb7c5c05b7a2fb701bdabb203d8c949052502754022b3d324f6b379e1efa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22KiuQcZYpJyFgOqHL2LypVYk5npTLYsvm%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Pagination-Total-Count",
+									"value": "3"
+								},
+								{
+									"key": "X-Pagination-Page-Count",
+									"value": "1"
+								},
+								{
+									"key": "X-Pagination-Current-Page",
+									"value": "1"
+								},
+								{
+									"key": "X-Pagination-Per-Page",
+									"value": "20"
+								},
+								{
+									"key": "Link",
+									"value": "<http://localhost:8080/api/authors?page=1>; rel=self, <http://localhost:8080/api/authors?page=1>; rel=first, <http://localhost:8080/api/authors?page=1>; rel=last"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b163bd4aec"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "487"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b163bd4aec"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Mario Jimenez\",\n        \"nationality\": null,\n        \"birthday_date\": \"1996-10-20\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Andres Jimenez\",\n        \"nationality\": null,\n        \"birthday_date\": \"1996-10-26\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Tatiana Jimenez\",\n        \"nationality\": null,\n        \"birthday_date\": \"1996-11-26\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Author By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/authors/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"authors",
+								"100"
+							]
+						},
+						"description": "Obtains the information of a specific author, the author id must be sent as a parameter"
+					},
+					"response": [
+						{
+							"name": "Success Response Get Author By Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/authors/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:44:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=brcn8tiu4mu7v474i448r8jfv7; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=6f36e7e78afa80e72f4353d04050fe9ffd676950ca520d700dfd3b991e267ed1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224kzfy3guxQNqK7W2IHTxSFuKgDDwMheU%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1685d3b96"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "276"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1685d3b96"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Mario Jimenez\",\n    \"nationality\": null,\n    \"birthday_date\": \"1996-10-20\"\n}"
+						},
+						{
+							"name": "Response not found the author",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/authors/100",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors",
+										"100"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:45:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=90pdpcldjmes1majnl263ciskj; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=16822e0ca4f7b12e596d0855b29ac401efae20d7050e22192617b6f7d61eea41a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%223sMzk4Qz9y1stTtIj3BLt9QaQJYoabsf%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b16a824163"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "236"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b16a824163"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Not Found\",\n    \"message\": \"Object not found: 100\",\n    \"code\": 0,\n    \"status\": 404,\n    \"type\": \"yii\\\\web\\\\NotFoundHttpException\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Juan Jimenez\",\r\n    \"birthday_date\":\"1996-11-26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"authors"
+							]
+						},
+						"description": "Allows the creation of the author, the name and birthday are required to be sent."
+					},
+					"response": [
+						{
+							"name": "Response the validation register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Test Test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors"
+									]
+								}
+							},
+							"status": "Data Validation Failed.",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:46:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=5piceshm5ni37gv2gq0i5djc82; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=78f0506bf8dc88debec77fb12bc91f8a590a9ae1f3723c1969e088c681dc70ada%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22XO4MRp7HP9seQPfP9yZ2qxm2Tpc5qzss%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b170ba9c33"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "248"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b170ba9c33"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"field\": \"birthday_date\",\n        \"message\": \"Birthday Date no puede estar vacío.\"\n    }\n]"
+						},
+						{
+							"name": "Create new Author",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Pitter Pan\",\r\n    \"birthday_date\":\"1996-11-26\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:47:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=nt3hedf5i6civtdc4dmsqje9kb; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=40ed42d407f8d96c2546744a563e8d09d564145fe822c72d77e0d1f91022ebe9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22GTxtw6ayYigcDtPFPJXJwkueTGMiC2GJ%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:8080/api/authors/5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b173fec5a4"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "216"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b173fec5a4"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Pitter Pan\",\n    \"birthday_date\": \"1996-11-26\",\n    \"id\": 5\n}"
+						}
+					]
+				},
+				{
+					"name": "Update the information Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Mario Reyes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/authors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"authors",
+								"1"
+							]
+						},
+						"description": "It allows updating the author information and the author ID to be modified must be sent as a parameter."
+					},
+					"response": [
+						{
+							"name": "Response the model not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Mario Jimenez\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/authors/1000",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors",
+										"1000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:50:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=hocqn8ppeam84sao8ggtfonv66; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=c7d0add35b3eaad7b3cb0df20c7c50202afa6124743df079adfa8ef441984939a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22gboC6uVuVRABzaV_3w_rtXszgq0g2Kz0%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b17d09594c"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "240"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b17d09594c"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Not Found\",\n    \"message\": \"The requested author does not exist.\",\n    \"code\": 0,\n    \"status\": 404,\n    \"type\": \"yii\\\\web\\\\NotFoundHttpException\"\n}"
+						},
+						{
+							"name": "Response successfully the update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Mario Reyes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/authors/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:51:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=q6lum75bucf09hsl13eqmevgff; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=ee5be20de564d26d67a56732b425b5f9f18432b8585c10be4e2ec24581d389f7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22HVk7TwI1veCwnwQ07ggEljArJnqlyJ6M%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b18103ad9d"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "338"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b18103ad9d"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"Updated author successfully.\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Mario Reyes\",\n        \"nationality\": null,\n        \"birthday_date\": \"1996-10-20\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete the Author By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/authors/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"authors",
+								"6"
+							]
+						},
+						"description": "Delete the author, you must send the ID of the author to be deleted"
+					},
+					"response": [
+						{
+							"name": "Response the Author not exist",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/authors/100",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors",
+										"100"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:53:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=tbfmbsq0rpuo7llj9dai2vnt9l; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=c2c9caf4382a1ef11b2385210067e040c74200c68c968d0437d11df4f5aaee78a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JbgK_Srpq1XoQWot0nIs-5rVZZ1YDu6m%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b189a84ee7"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "202"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b189a84ee7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Not Found\",\n    \"message\": \"The requested author does not exist.\",\n    \"code\": 0,\n    \"status\": 404,\n    \"type\": \"yii\\\\web\\\\NotFoundHttpException\"\n}"
+						},
+						{
+							"name": "Response the delete the author",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/authors/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"authors",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:55:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=stteef1dh7h95gcchei5br0ga1; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=a0f2eb4a9f52738645aedc3203c4372247c7fbd9cecc800b7ed24851b97e6c27a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ei9yl707V2HuVsr7LtL2ht_bYNrIXWAH%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b192f75715"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "158"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b192f75715"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"Author deleted.\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			],
+			"description": "The basic functionalities that the author entity has"
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Get All Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"books"
+							]
+						},
+						"description": "Lists the information associated with the books, in addition to associating the author"
+					},
+					"response": [
+						{
+							"name": "Response the invalid token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:58:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b19b968a4a"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "250"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b19b968a4a"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Unauthorized\",\n    \"message\": \"Invalid token\",\n    \"code\": 0,\n    \"status\": 401,\n    \"type\": \"yii\\\\web\\\\UnauthorizedHttpException\"\n}"
+						},
+						{
+							"name": "Response the success get data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:58:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=l0jcbled2r8pav0ti9mijp88vj; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=56cda9c5835d776dd67660443bf6dfb06e350f1d3e6133b8d46bb9d9184669c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225oIJ-rV0gsv1_J2Ctj0jhGxouhaoxOUC%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "X-Pagination-Total-Count",
+									"value": "1"
+								},
+								{
+									"key": "X-Pagination-Page-Count",
+									"value": "1"
+								},
+								{
+									"key": "X-Pagination-Current-Page",
+									"value": "1"
+								},
+								{
+									"key": "X-Pagination-Per-Page",
+									"value": "20"
+								},
+								{
+									"key": "Link",
+									"value": "<http://localhost:8080/api/books?page=1>; rel=self, <http://localhost:8080/api/books?page=1>; rel=first, <http://localhost:8080/api/books?page=1>; rel=last"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b19d7b9b35"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "317"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b19d7b9b35"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"author_id\": 1,\n        \"title\": \"Design pattern\",\n        \"publication_year\": 2019,\n        \"description\": \"This book content the best example the using\",\n        \"authors\": [\n            {\n                \"id\": 1,\n                \"name\": \"Mario Reyes\",\n                \"nationality\": null,\n                \"birthday_date\": \"1996-10-20\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Data the Books By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/books/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"books",
+								"2"
+							]
+						},
+						"description": "Obtains the detailed information of the book based on the specified code"
+					},
+					"response": [
+						{
+							"name": "Response the not found the code",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/books/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:59:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=tmmipcodju87hucchdg70vlcqm; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=ab8415bf98d45896f0650132ef2b1b5d0113dd487c6c828405f0891b22654132a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%229vaMPZZAMejsdWtlOTwx1GGpIiqaD8nP%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1a0ca468b"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "218"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1a0ca468b"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Not Found\",\n    \"message\": \"Object not found: 1\",\n    \"code\": 0,\n    \"status\": 404,\n    \"type\": \"yii\\\\web\\\\NotFoundHttpException\"\n}"
+						},
+						{
+							"name": "Response the success get data by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/books/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 02:00:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=bjf6f13o6139v5nmus8fu862gq; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=54955b505f233b551e5385634728ae09d4b042e28fdee7045495693a14098341a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22rmbKbSmftpNOD6G5nGjK-xudvTehovzf%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1a506d6e2"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "289"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1a506d6e2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"author_id\": 1,\n    \"title\": \"Design pattern\",\n    \"publication_year\": 2019,\n    \"description\": \"This book content the best example the using\",\n    \"authors\": [\n        {\n            \"id\": 1,\n            \"name\": \"Mario Reyes\",\n            \"nationality\": null,\n            \"birthday_date\": \"1996-10-20\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create the Book with Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Example\",\r\n    \"publication_year\":2019\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"books"
+							]
+						},
+						"description": "Performs the functionality of creating a new book"
+					},
+					"response": [
+						{
+							"name": "Success response create a new book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Example\",\r\n    \"publication_year\":2019,\r\n    \"description\":\"This book content the architech\",\r\n    \"author_id\":3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 02:01:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=83agc8t793rtcr3qn4fo1l9ldf; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=31ead5488d5959902bd37825dd0e517b3377496e0d118e9c8f300fd44152543ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22cPLjbZ-T-486tMc2gfI-_QGBt9J4TCG5%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:8080/api/books/4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1a909c62b"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "358"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1a909c62b"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"Example\",\n    \"publication_year\": 2019,\n    \"description\": \"This book content the architech\",\n    \"author_id\": 3,\n    \"id\": 4,\n    \"authors\": [\n        {\n            \"id\": 3,\n            \"name\": \"Tatiana Jimenez\",\n            \"nationality\": null,\n            \"birthday_date\": \"1996-11-26\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Response the validation data in create new book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Example\",\r\n    \"publication_year\":2019\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"status": "Data Validation Failed.",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 02:02:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=qa7u9cdllgld47u4ii83b9cvnj; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=be480f18177374e16eda9f6d58543031c043fb41bf5b076ac4497a22c58a7acea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22LJQ0csF0bl3HLdBfx0FYDlQb6N7yMNq4%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1ab5e8294"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "228"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1ab5e8294"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"field\": \"author_id\",\n        \"message\": \"Author Id no puede estar vacío.\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update the Data the Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Clean Code V2\",\r\n    \"publication_year\":2012,\r\n    \"author_id\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/books/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"books",
+								"2"
+							]
+						},
+						"description": "Update the book information, you must pass the book code as a parameter"
+					},
+					"response": [
+						{
+							"name": "Response not found the code the book",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Clean Code\",\r\n    \"publication_year\":2012,\r\n    \"author_id\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/books/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 02:03:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=p4k5st126ogeajuhg70vlqss2f; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=271e03c1e6eb50535a82291adfa3e40697d26ba35a6d5eb221a4a8391e5f9f05a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22heY9KEH7pNXMTWC9OjiGAyEdkka1_e3o%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1af36d16b"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "252"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1af36d16b"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Not Found\",\n    \"message\": \"The requested book does not exist.\",\n    \"code\": 0,\n    \"status\": 404,\n    \"type\": \"yii\\\\web\\\\NotFoundHttpException\"\n}"
+						},
+						{
+							"name": "Success Reponse the update book",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Clean Code V2\",\r\n    \"publication_year\":2012,\r\n    \"author_id\":3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/books/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 02:04:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=opskqsdk7vj641ndeueb0m8q8e; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=31fdab5acf38260ed92d3a4f6351bce9919b6498e634b12495027b0a3198ae00a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bA8M7Kupa41O8EHEbxn32lvnehYrhaKM%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1b29be693"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "268"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1b29be693"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"Updated book successfully.\",\n    \"data\": {\n        \"id\": 2,\n        \"author_id\": 3,\n        \"title\": \"Clean Code V2\",\n        \"publication_year\": 2012,\n        \"description\": \"This book content the best example the using\",\n        \"authors\": [\n            {\n                \"id\": 3,\n                \"name\": \"Tatiana Jimenez\",\n                \"nationality\": null,\n                \"birthday_date\": \"1996-11-26\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete the books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bgqmg8CyL2xHDfuc3mc9NTnDrWPkiPMu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/books/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"books",
+								"4"
+							]
+						},
+						"description": "Delete the book, you must pass the book code"
+					},
+					"response": [
+						{
+							"name": "Response the not found the code the book",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/books/100",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books",
+										"100"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 02:05:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=98db6t26qt6jhvtvpsn8rptt4n; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=e700c5b0a315987d75bd9d7504a5d45b165341424136d3489eda06007e5b1a1ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22TpCSKtzmXMEP1Wsd5ISPCgD9BbDItX83%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1b790f957"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "229"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1b790f957"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Not Found\",\n    \"message\": \"The requested book does not exist.\",\n    \"code\": 0,\n    \"status\": 404,\n    \"type\": \"yii\\\\web\\\\NotFoundHttpException\"\n}"
+						},
+						{
+							"name": "Response the successfully the delete book",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/books/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"books",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 02:06:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=f2c1cqnh4arihl08tidr8fo6qn; path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_identity=deleted; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf=5413f76f21e905913b45270636d6eb642888c62ecc81adfbf261e0dc325232fea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PbbljSrMUMqo76y5X-1E3iQVTGibv7LN%22%3B%7D; path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1b971ae8b"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "233"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1b971ae8b"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"Book deleted.\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			],
+			"description": "obtains the basic operations associated with the books"
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"marianaponce\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "Performs the authentication of the user and the password entered, in addition to giving an access code"
+					},
+					"response": [
+						{
+							"name": "Response the login successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"marianaponce\",\r\n    \"password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:40:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b158db3a1f"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "1,763"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b158db3a1f"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"Logged in User\",\n    \"data\": {\n        \"accessToken\": \"F3wdpZaqNtqWAFr2Bq8YoZOQ_EP1JrKV\",\n        \"expiresAt\": \"2024-07-19 21:10:31\"\n    }\n}"
+						},
+						{
+							"name": "Login User Invalided Credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"marianapon\",\r\n    \"password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:41:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b15bba1769"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "179"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b15bba1769"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Unauthorized\",\n    \"message\": \"Invalid credentials\",\n    \"code\": 0,\n    \"status\": 401,\n    \"type\": \"yii\\\\web\\\\UnauthorizedHttpException\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"diegoandres\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"register"
+							]
+						},
+						"description": "Performs the functionality of creating a new user to the system"
+					},
+					"response": [
+						{
+							"name": "Response the success Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"diegoandres\",\r\n    \"password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:34:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b1414b592e"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "6,235"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b1414b592e"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"User Register\",\n    \"data\": {\n        \"accessToken\": \"6NrYNWwwqLQ6IGHE05IBdsR-bfZ0k0IE\",\n        \"expiresAt\": \"2024-07-19 21:04:16\"\n    }\n}"
+						},
+						{
+							"name": "Response the username alredy exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"diegoandres\",\r\n    \"password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8080"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 01:36:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "669b148607452"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "298"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=669b148607452"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Unauthorized\",\n    \"message\": \"Username already exists\",\n    \"code\": 0,\n    \"status\": 401,\n    \"type\": \"yii\\\\web\\\\UnauthorizedHttpException\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Contains the user's registration and login processes, in addition to generating the access code"
+		}
+	]
+}

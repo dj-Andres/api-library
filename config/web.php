@@ -11,10 +11,23 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'timezone' => 'America/Guayaquil',
     'components' => [
+        'user' => [
+            'identityClass' => 'app\models\User',
+            'enableAutoLogin' => false,
+            'loginUrl' => null,
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'v51BQ_ZS3Nb8XhZrolu-EclxnaPvY9lM',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
+        ],
+        'response' => [
+            'format' => yii\web\Response::FORMAT_JSON,
+            'charset' => 'UTF-8',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -42,14 +55,21 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+                'POST api/register' => 'auth/register',
+                'POST api/login' => 'auth/login',
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['book', 'author','auth'],
+                    'prefix' => 'api'
+                ],
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
