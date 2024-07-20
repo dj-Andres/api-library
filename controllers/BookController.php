@@ -69,7 +69,6 @@ class BookController extends ActiveController
     $model->load(Yii::$app->request->post(), '');
 
     if ($model->validate() && $model->save()) {
-      Yii::$app->response->statusCode = 201;
       return ResponseFormatter::success($model, 'Created book successfully.');
     } else {
       throw new UnprocessableEntityHttpException(json_encode($model->errors));
@@ -107,7 +106,6 @@ class BookController extends ActiveController
     if ($model->delete() === false) {
       throw new UnprocessableEntityHttpException('No se pudo eliminar el libro.');
     }
-    Yii::$app->response->statusCode = 204;
     return ResponseFormatter::success(null, 'Book deleted.');
   }
 
